@@ -1,13 +1,15 @@
+import React, { Component } from "react";
+import { Loader } from "./Loader/Loader";
+import { Instance } from "./Modal/Modal";
+
 export const App = () => {
   return (
     <div
       style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
+        display: 'grid',
+        gridTemplateColumns: '1fr',
+        gridGap: 16,
+        paddingBottom: 24,
       }}
     >
       React homework template
