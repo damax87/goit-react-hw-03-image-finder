@@ -1,11 +1,17 @@
-import * as basicLightbox from 'basiclightbox'
+import propTypes from 'prop-types';
 import { Overlay } from "./Modal.style";
-import { Modal } from "./Modal.style";
+import { ModalStyle } from "./Modal.style";
 
-export const Instance = () => {
-    basicLightbox.create(`
-    <img src="assets/images/image.png" width="800" height="600">
-`)
+export const Modal = ({ src, alt, handleClose }) => (
+  <Overlay onClick={handleClose}>
+    <ModalStyle>
+      <img src={src} alt={alt} />
+    </ModalStyle>
+  </Overlay>
+);
 
-Instance.show()
-}
+Modal.propTypes = {
+  src: propTypes.string.isRequired,
+  alt: propTypes.string.isRequired,
+  handleClose: propTypes.func.isRequired,
+};
