@@ -6,28 +6,31 @@ import { SearchFormButton } from "./Searchbar.style";
 import { SearchFormButtonLabel } from "./Searchbar.style";
 import { SearchFormInput } from "./Searchbar.style";
 
-export const Searchbar =({ onSubmit }) => {
+const Searchbar = ({ onSubmit }) => {
+
+return(
 
       <SearchBarStyle>
-  <SearchForm onSubmit={onSubmit}>
+  <SearchForm onSubmit={ onSubmit }>
     <SearchFormButton type="submit">
-        <ImSearch />
+        <ImSearch color="lightseagreen"/>
       <SearchFormButtonLabel>Search</SearchFormButtonLabel>
     </SearchFormButton>
 
     <SearchFormInput
-      type="text"
       name="inputForSearch"
-      autocomplete="off"
+      type="text"
+      autoComplete="off"
       autoFocus
       placeholder="Search images and photos"
     />
   </SearchForm>
 </SearchBarStyle>
-    //     )
-    // }
+)
 };
 
 Searchbar.propTypes = {
-  onSubmit: propTypes.func
+  onSubmit: propTypes.func.isRequired,
 };
+
+export default Searchbar;

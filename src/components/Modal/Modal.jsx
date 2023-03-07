@@ -2,12 +2,13 @@ import propTypes from 'prop-types';
 import { Overlay } from "./Modal.style";
 import { ModalStyle } from "./Modal.style";
 
-export const Modal = ({ src, alt, handleClose }) => (
+const Modal = ({ src, alt, handleClose }) => (
   <Overlay onClick={handleClose}>
     <ModalStyle>
       <img src={src} alt={alt} />
     </ModalStyle>
   </Overlay>
+
 );
 
 Modal.propTypes = {
@@ -15,3 +16,5 @@ Modal.propTypes = {
   alt: propTypes.string.isRequired,
   handleClose: propTypes.func.isRequired,
 };
+
+export default Modal;

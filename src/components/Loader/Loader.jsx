@@ -1,10 +1,15 @@
-import { FallingLines} from  'react-loader-spinner'
+import { FallingLines } from 'react-loader-spinner';
+import { LoaderStyle } from './Loader.style';
 
-export const Loader = () => {
+const Loader = () => (
+  <LoaderStyle>
     <FallingLines
-    color="teal"
-    width="100"
-    visible={true}
-    ariaLabel='falling-lines-loading'
-  />
-};
+      color="teal"
+      width="100"
+      visible={true}
+      ariaLabel='falling-lines-loading'
+    />
+  </LoaderStyle>
+);
+
+export default Loader;

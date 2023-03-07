@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import 'react-toastify/dist/ReactToastify.css';
-import { fetchImages } from "./API/Api";
-import { Searchbar } from "./Searchbar/Searchbar";
-import { ImageGallery } from "./ImageGallery/ImageGallery";
-import { Button } from "./Button/Button";
-import { Loader } from "./Loader/Loader";
-import { Modal} from "./Modal/Modal";
+import fetchImages from "./API/fetchImages";
+import Searchbar from "./Searchbar/Searchbar";
+import ImageGallery from "./ImageGallery/ImageGallery";
+import Button from "./Button/Button";
+import Loader from "./Loader/Loader";
+import Modal from "./Modal/Modal";
 
 export class App extends Component {
   state = {
@@ -18,10 +17,10 @@ export class App extends Component {
     modalAlt: '',
   };
 
-  handleSubmit = async e => {
-    e.preventDefault();
+  handleSubmit = async event => {
+    event.preventDefault();
     this.setState({ isLoading: true });
-    const inputForSearch = e.target.elements.inputForSearch;
+    const inputForSearch = event.target.elements.inputForSearch;
     if (inputForSearch.value.trim() === '') {
       return;
     }
@@ -45,11 +44,11 @@ export class App extends Component {
     });
   };
 
-  handleImageClick = e => {
+  handleImageClick = event => {
     this.setState({
       modalOpen: true,
-      modalAlt: e.target.alt,
-      modalImg: e.target.name,
+      modalAlt: event.target.alt,
+      modalImg: event.target.name,
     });
   };
 
@@ -77,13 +76,13 @@ export class App extends Component {
       style={{
         display: 'grid',
         gridTemplateColumns: '1fr',
-        gridGap: 16,
-        paddingBottom: 24,
+        gridGap: '16px',
+        paddingBottom: '24px',
       }}
     >
       {this.state.isLoading ? (
           <Loader />
-        ) : (
+        ) : ( 
           <React.Fragment>
             <Searchbar onSubmit={this.handleSubmit} />
             <ImageGallery
