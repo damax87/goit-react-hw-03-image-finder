@@ -34,7 +34,7 @@ export class App extends Component {
   };
 
   handleClickMore = async () => {
-    const response = await fetchImages(
+      const response = await fetchImages(
       this.state.currentSearch,
       this.state.pageNumber + 1
     );
@@ -89,7 +89,8 @@ export class App extends Component {
               onImageClick={this.handleImageClick}
               images={this.state.images}
             />
-            {this.state.images.length > 0 ? (
+            {this.state.images.length > 0 && this.state.images.length < 500 && this.state.images.length / 12 === this.state.pageNumber ?
+            ( 
               <Button onClick={this.handleClickMore} />
             ) : null}
           </React.Fragment>
